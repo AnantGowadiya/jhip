@@ -4,12 +4,16 @@ metadata:
   name: ui
   namespace: marvel
 spec:
+  strategy:
+    type: Recreate
   replicas: 1
   selector:
     matchLabels:
       app: ui
       version: 'v1'
   template:
+    containers:
+      imagePullPolicy: Always
     metadata:
       labels:
         app: ui
